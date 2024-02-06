@@ -7,6 +7,10 @@ if "run" not in st.session_state:
     st.session_state["run"] = False
 
 
+def video_frame_callback(frame: av.VideoFrame) -> av.VideoFrame:
+    image = frame.to_ndarray(format="bgr24")
+    return av.VideoFrame.from_ndarray(image, format="bgr24")
+
 if st.session_state["run"]:
     # webrtc_streamer(key="key", desired_playing_state=True, video_processor_factory=EmotionProcessor)
     # webrtc_streamer(key="example", desired_playing_state=True)
