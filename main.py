@@ -16,4 +16,4 @@ class VideoTransformer(VideoTransformerBase):
 button = st.button("This is a Button")
 if button:
   st.text("Clicked")
-  webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+  webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
