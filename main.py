@@ -9,7 +9,18 @@ if "run" not in st.session_state:
 
 if st.session_state["run"]:
     # webrtc_streamer(key="key", desired_playing_state=True, video_processor_factory=EmotionProcessor)
-    webrtc_streamer(key="example", desired_playing_state=True)
+    # webrtc_streamer(key="example", desired_playing_state=True)
+    webrtc_streamer(
+    key="object-detection",
+    mode=WebRtcMode.SENDRECV,
+    rtc_configuration={
+        "iceServers": get_ice_servers(),
+        "iceTransportPolicy": "relay",
+    },
+    video_frame_callback=video_frame_callback,
+    media_stream_constraints={"video": True, "audio": False},
+    async_processing=True,
+)
     
 button_yes = st.button("Start Streaming 📸")
 button_no = st.button("Stop Streaming 📷")
