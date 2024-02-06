@@ -1,7 +1,7 @@
 import streamlit as st
 import cv2
 # import mediapipe as mp
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import WebRtcMode, webrtc_streamer
 
 if "run" not in st.session_state:
     st.session_state["run"] = False
